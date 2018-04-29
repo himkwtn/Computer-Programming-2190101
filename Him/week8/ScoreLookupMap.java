@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 public class ScoreLookupMap {
 	public static void main(String[] args) throws IOException {
-		HashMap<String, List<Integer>> student = new HashMap<>();
+		HashMap<String, String[]> student = new HashMap<>();
 		setUp(student, "score.csv");
 		boolean toQuit = false;
 		do{
@@ -21,16 +21,12 @@ public class ScoreLookupMap {
 		}while(!toQuit);
 	}
 
-	public static void setUp(HashMap<String, List<Integer>> student, String file)throws IOException{
+	public static void setUp(HashMap<String, String[]> student, String file)throws IOException{
 		Scanner sc = new Scanner(new File(file));
 		sc.nextLine();
-		List<Integer> scores = new ArrayList<>();
 		while(sc.hasNext()){
 			String[] line = sc.nextLine().split(",");
-			for(int i = 1 ; i < line.length ; i++)
-				scores.add(Integer.parseInt(line[i]));
-			student.put(line[0], new ArrayList<Integer>(scores));
-			scores.clear();
+			student.put(line[0], Arrays.copyOfRange(line, 1, line.length));
 		}
 	}
 
@@ -46,7 +42,7 @@ public class ScoreLookupMap {
 		return (choice.length()==1)?choice.charAt(0):'a';
 	}
 
-	public static void commenceLookUpProcedure(HashMap<String, List<Integer>> student){
+	public static void commenceLookUpProcedure(HashMap<String, String[]> student){
 		System.out.print("Enter student ID: ");
 		Scanner kb = new Scanner(System.in);
 		String id = kb.nextLine();
@@ -55,14 +51,13 @@ public class ScoreLookupMap {
 		else
 			System.out.println("ID not found");		
 	}
-	public static void printScore(String id, List<Integer> scores){
-		int total = 0;
+	
+	public static void printScore(String id, String[] scores){
+		int total = Arrays.stream(scores).mapToInt(Integer::parseInt).reduce(0,Integer::sum);
 		System.out.println("\t\tQ1\tQ2\tQ3\tQ4\tQ5\tTotal");
 		System.out.print(id+"\t");
-		for(int n : scores){
-			total += n;
-			System.out.print(n+"\t");
-		}
+		for(String s : scores)
+			System.out.print(s+"\t");
 		System.out.print(total+"\n");
 	}
 }
