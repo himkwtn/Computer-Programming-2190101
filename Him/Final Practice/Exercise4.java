@@ -1,5 +1,5 @@
 import java.util.*;
-public class Exercise2{
+public class Exercise4{
 	public static void main(String[] args) {
 		System.out.print(Arrays.toString(findDifference(new int[]{1,4,5,7},new int[]{1,7,8,3})));
 		System.out.print(Arrays.toString(findDifference(new int[] {1,7,8,3},new int[]{1,4,5,7})));

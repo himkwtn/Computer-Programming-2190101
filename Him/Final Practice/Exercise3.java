@@ -1,5 +1,5 @@
 import java.util.Arrays;
-public class Permutations{
+public class Exercise3{
 	public static void main(String[] args) {
 		permute(new int[] {1,2,3,4});
 	}
@@ -12,7 +12,6 @@ public class Permutations{
 			return;
 		}
 		for(int i = n ; i < l ; i++){
-			swap(arr,n,i);
 			permute(arr,n+1,l);
 			swap(arr,n,i);
 		}
