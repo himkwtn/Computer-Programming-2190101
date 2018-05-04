@@ -19,4 +19,7 @@ public class Car extends Vehicle{
 	public void setHorsePower(int horsePower) {
 		this.horsePower = horsePower;
 	}
+	public String toString(){
+		return super.toString() + " engine capacity: " + engineCapacity + " horse power: " +horsePower;
+	}
 }

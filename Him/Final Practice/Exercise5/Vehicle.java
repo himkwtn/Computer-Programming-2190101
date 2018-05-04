@@ -17,4 +17,8 @@ public class Vehicle {
 	public void setMaxSpeed(int maxSpeed) {
 		this.maxSpeed = maxSpeed;
 	}
+	public String toString(){
+		return "max speed: "+maxSpeed + " number of passengers: " + numberOfPassengers;
+	}
+
 }

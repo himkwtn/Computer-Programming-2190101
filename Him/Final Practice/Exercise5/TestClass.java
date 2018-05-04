@@ -14,12 +14,12 @@ public class TestClass {
 	}
 	public static void filerSearch(int speed, int passenger, Vehicle[] vList){
 		Arrays.stream(vList).filter(vehicle -> vehicle.getNumberOfPassengers() >= passenger && vehicle.getMaxSpeed() >= speed)
-			.forEach( vehicle -> System.out.println(vehicle));
+			.forEach( vehicle -> System.out.println(vehicle.getClass().getSimpleName() + ": "+vehicle));
 	}
 	public static void filterSearchLoop(int speed, int passenger, Vehicle[] vList){
 		for(int i = 0 ; i < vList.length ; i++){
 			if(vList[i].getNumberOfPassengers() >= passenger && vList[i].getMaxSpeed() >= speed)
-				System.out.println(vList[i]);
+				System.out.println(vList[i].getClass().getSimpleName() + ": "+vList[i]);
 		}
 	}
 }

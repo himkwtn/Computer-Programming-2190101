@@ -10,4 +10,7 @@ public class HotAirBalloon extends Vehicle{
 	public void setEnvelopeSize(int envelopeSize) {
 		this.envelopeSize = envelopeSize;
 	}
+	public String toString(){
+		return super.toString() + " envelope size: " + envelopeSize;
+	}
 }
