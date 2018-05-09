@@ -1,7 +1,7 @@
 import java.util.Arrays;
 public class Exercise3{
 	public static void main(String[] args) {
-		permute(new int[] {1,2,3,4});
+		permute(new int[] {1,2,3});
 	}
 	public static void permute(int[] arr){
 		permute(arr,0,arr.length);
@@ -12,6 +12,7 @@ public class Exercise3{
 			return;
 		}
 		for(int i = n ; i < l ; i++){
+			swap(arr, n, i);
 			permute(arr,n+1,l);
 			swap(arr,n,i);
 		}
