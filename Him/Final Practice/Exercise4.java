@@ -16,21 +16,27 @@ public class Exercise4{
 
 	}
 	public static int[] findDifferenceLoop(int[] a, int[] b){
-		int counter = a.length;
-		for(int i = 0; i < a.length ; i++) {
-			for(int j = 0 ; j < b.length ; j++) {
-				if(a[i] == b[j]) {
-					a[i] = 0;
-					counter--;
-				}
+		int len = a.length;
+		for(int i = 0 ; i < a.length ; i++){
+			for(int j = 0 ; j < b.length ; j++){
+				if(a[i] == b[j]){
+					len--;
+				} 
 			}
 		}
-		int[] res = new int[counter];
-		int j = 0;
-		for(int i  = 0; i < a.length ; i++) {
-			if((a[i]!=0)) {
-				res[j] = a[i];
-				j++;
+		int res[] = new int[len];
+		int k = 0;
+		for(int i = 0 ; i < a.length ; i++){
+			boolean dif = true;
+			for(int j = 0 ; j < b.length ; j++){
+				if(a[i] == b[j]){
+					dif = false;
+					break;
+				} 
+			}
+			if(dif){
+				res[k] = a[i];
+				k++;
 			}
 		}
 		return res;
